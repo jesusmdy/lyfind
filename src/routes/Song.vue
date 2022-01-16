@@ -1,5 +1,6 @@
 <script setup>
 import eyeIconVue from '../components/icons/eyeIcon.vue'
+import SongMeta from '../components/Song/Meta.vue'
 </script>
 <template>
   <section class="main">
@@ -9,14 +10,14 @@ import eyeIconVue from '../components/icons/eyeIcon.vue'
           <img :src="song.song_art_image_thumbnail_url" />
         </div>
         <div class="content">
-          <h1 class="text-2xl px-4">{{ song.title }}</h1>
+          <h1 class="text-2xl md:px-4">{{ song.title }}</h1>
           <router-link
-            class="font-bold text-fuchsia-500 px-4"
+            class="font-bold text-fuchsia-500 md:px-4"
             :to="song.primary_artist.api_path"
           >
             {{ song.primary_artist.name }}
           </router-link>
-          <p class="text-xs font-semibold px-4">{{ song.release_date_for_display }}</p>
+          <SongMeta :song="song" />
           <div class="info">
             <div v-for="(item, n) in song.media" :key="n" class="item">
               <a target="_blank" :href="item.url" class="chip">
@@ -28,8 +29,9 @@ import eyeIconVue from '../components/icons/eyeIcon.vue'
         </div>
       </div>
       <div class="content">
-        <div class="p-6">
-          <p>{{ song.description.plain }}</p>
+        <div class="p-8 pt-0">
+          <h4 class="text-2xl mb-2 uppercase font-medium text-fuchsia-900">Description</h4>
+          <p class="text-lg text-fuchsia-900">{{ song.description.plain }}</p>
         </div>
       </div>
     </article>
@@ -62,16 +64,16 @@ export default {
   @apply
     max-w-screen-md
     mx-auto
-    border
-    border-fuchsia-200
-    shadow-sm
+    md:border
+    md:border-fuchsia-200
+    md:shadow-sm
     bg-fuchsia-50
     rounded-xl
   ;
   .header {
     @apply
-      flex
-      flex-wrap
+      md:flex
+      md:flex-wrap
       p-8
     ;
     .image {
@@ -87,24 +89,24 @@ export default {
           w-40
           h-40
           rounded-lg
-          shadow-lg
+          shadow-sm
           border
         ;
       }
     }
     .content {
       @apply
-        flex-1
-        flex
-        flex-col
-        justify-end
+        md:flex-1
+        md:flex
+        md:flex-col
+        md:justify-end
       ;
       .info {
         @apply
           flex
           flex-wrap
           w-full
-          px-4
+          md:px-4
           pt-2
         ;
         .item {
@@ -115,6 +117,7 @@ export default {
               rounded-full
               flex
               p-1
+              bg-white
             ;
             &:hover {
               @apply
