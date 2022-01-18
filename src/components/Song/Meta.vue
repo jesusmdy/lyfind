@@ -1,8 +1,20 @@
+<script setup>
+import formatter from '../../utils/numberFormatter'
+const {format} = formatter
+import eyeIconVue from '../icons/eyeIcon.vue'
+import userGrouIconVue from '../icons/userGrouIcon.vue'
+</script>
 <template>
   <div class="meta">
-    <div class="item">{{ song.release_date_for_display }}</div>
-    <div class="item">Views: {{ song.stats.pageviews }}</div>
-    <div class="item">Contributors: {{ song.stats.contributors }}</div>
+    <div class="item" title="Release date">{{ song.release_date_for_display }}</div>
+    <div class="item" title="Views">
+      <eyeIconVue class="h-4 w-4 mr-1" />
+      {{ format(song.stats.pageviews) }}
+    </div>
+    <div class="item" title="Contributors">
+      <userGrouIconVue class="h-4 w-4 mr-1" />
+      {{ song.stats.contributors }}
+    </div>
   </div>
 </template>
 <script>
@@ -26,6 +38,7 @@ export default {
       text-xs
       font-semibold
       border-r
+      flex
     ;
     &:last-child {
       @apply border-none;
