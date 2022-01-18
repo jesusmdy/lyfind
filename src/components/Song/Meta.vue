@@ -39,6 +39,8 @@ export default {
       font-semibold
       border-r
       flex
+      dark:border-r-zinc-700
+      dark:text-zinc-100
     ;
     &:last-child {
       @apply border-none;

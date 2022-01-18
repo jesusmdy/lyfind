@@ -41,21 +41,20 @@ export default {
 .songItem {
   @apply
     rounded-xl
-    border-2
-    dark:border
+    border
     border-fuchsia-100
-    dark:border-fuchsia-700
+    dark:border-zinc-700
     flex
     h-28
-    bg-fuchsia-50
-    dark:bg-fuchsia-900
+    bg-white
+    dark:bg-zinc-800
   ;
   .artist {
     @apply
       text-xs
       font-bold
       text-gray-700
-      dark:text-fuchsia-500
+      dark:text-zinc-400
       dark:font-normal
     ;
   }
@@ -65,7 +64,7 @@ export default {
       flex
       flex-col
       justify-center
-      dark:text-fuchsia-200
+      dark:text-zinc-100
       dark:font-bold
     ;
   }
@@ -74,12 +73,13 @@ export default {
       flex
       mt-2
       text-gray-600
-      dark:text-fuchsia-400
+      dark:text-zinc-400
     ;
   }
   &:hover {
     @apply
       border-fuchsia-200
+      dark:border-zinc-600
       cursor-pointer
     ;
   }

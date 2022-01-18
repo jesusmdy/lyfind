@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto">
+  <div class="container mx-auto h-full">
     <div v-if="$route?.query?.search">
       <Search  />
     </div>
@@ -23,8 +23,8 @@ export default {
     flex
     items-center
     justify-center
+    h-full
   ;
-  height: 50vh;
   .title {
     @apply
       text-4xl

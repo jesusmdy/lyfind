@@ -2,10 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-fuchsia-50 dark:bg-stone-900;
-  background-image: url('/bg3.png');
-  background-size: 70%;
+#app {
+  @apply
+    fixed
+    left-0
+    right-0
+    top-0
+    bottom-0
+    w-full
+    h-full
+    bg-violet-50
+    dark:bg-zinc-900
+    overflow-auto
+  ;
+  &.dark {
+    @apply border-2 border-red-500;
+  }
 }
 ::selection {
   @apply text-fuchsia-50 bg-fuchsia-500;

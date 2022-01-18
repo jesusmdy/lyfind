@@ -10,9 +10,9 @@ import SongMeta from '../components/Song/Meta.vue'
           <img :src="song.song_art_image_thumbnail_url" />
         </div>
         <div class="content">
-          <h1 class="text-2xl md:px-4">{{ song.title }}</h1>
+          <h1 class="title">{{ song.title }}</h1>
           <router-link
-            class="font-bold text-fuchsia-500 md:px-4"
+            class="artist"
             :to="song.primary_artist.api_path"
           >
             {{ song.primary_artist.name }}
@@ -28,10 +28,10 @@ import SongMeta from '../components/Song/Meta.vue'
           </div>
         </div>
       </div>
-      <div class="content">
-        <div class="p-8 pt-0">
-          <h4 class="text-2xl mb-2 uppercase font-medium text-fuchsia-900">Description</h4>
-          <p class="text-lg text-fuchsia-900">{{ song.description.plain }}</p>
+      <div class="main-content">
+        <div class="description">
+          <h4 class="description-title">Description</h4>
+          <p class="description-content">{{ song.description.plain }}</p>
         </div>
       </div>
     </article>
@@ -66,8 +66,10 @@ export default {
     mx-auto
     md:border
     md:border-fuchsia-200
+    md:dark:border-zinc-700
     md:shadow-sm
     bg-fuchsia-50
+    dark:bg-zinc-800
     rounded-xl
   ;
   .header {
@@ -91,6 +93,7 @@ export default {
           rounded-lg
           shadow-sm
           border
+          dark:border-zinc-700
         ;
       }
     }
@@ -101,6 +104,16 @@ export default {
         md:flex-col
         md:justify-end
       ;
+      .title {
+        @apply text-2xl md:px-4 dark:text-zinc-100;
+      }
+      .artist {
+        @apply
+          font-bold
+          text-fuchsia-500
+          md:px-4
+        ;
+      }
       .info {
         @apply
           flex
@@ -118,11 +131,14 @@ export default {
               flex
               p-1
               bg-white
+              dark:bg-zinc-900
+              dark:border-zinc-700
             ;
             &:hover {
               @apply
                 border-fuchsia-500
                 bg-fuchsia-100
+                dark:bg-zinc-800
               ;
             }
             img {
@@ -139,12 +155,35 @@ export default {
                 text-sm
                 font-semibold
                 px-2
+                dark:text-zinc-300
               ;
             }
           }
         }
       }
     }
+  }
+  .main-content {
+    .description {
+      @apply p-8 pt-0;
+        .description-title {
+          @apply
+            text-2xl
+            mb-2
+            uppercase
+            font-medium
+            text-fuchsia-900
+            dark:text-zinc-400
+          ;
+        }
+        .description-content {
+          @apply
+            text-lg
+            text-fuchsia-900
+            dark:text-zinc-400
+          ;
+        }
+      }
   }
 }
 </style>

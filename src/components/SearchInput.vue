@@ -47,16 +47,19 @@ export default {
     justify-center
     w-full
   ;
+  height: 15vh;
 }
 .searchBox {
   @apply
     w-full
     md:w-2/4
-    border-2
-    dark:border
+    border
+    shadow-sm
+    bg-white
+    dark:bg-zinc-800
     border-fuchsia-200
-    dark:border-fuchsia-900
-    rounded-full
+    dark:border-zinc-700
+    rounded-xl
     flex
   ;
   .searchIcon {
@@ -91,7 +94,7 @@ export default {
       font-bold
       text-fuchsia-500
       px-8
-      rounded-full
+      rounded-xl
       m-2
       dark:bg-fuchsia-900
       dark:text-fuchsia-200

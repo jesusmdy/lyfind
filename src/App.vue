@@ -6,11 +6,27 @@ import './App.scss'
 </script>
 
 <template>
-  <div>
+  <div class="main">
     <metainfo>
       <template v-slot:title="{ content }">{{ content ? `${content} / LyFind` : `LyFind` }}</template>
     </metainfo>
     <SearchInput />
-    <router-view />
+    <div class="content">
+      <router-view />
+    </div>
   </div>
 </template>
+<style lang="scss" scoped>
+.main {
+  @apply
+    flex
+    flex-col
+    h-full
+  ;
+  .content {
+    @apply
+      flex-1
+    ;
+  }
+}
+</style>
